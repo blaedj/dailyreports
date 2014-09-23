@@ -44,5 +44,4 @@ RSpec.describe DailyReport, :type => :model do
 
   end
 
-
 end
