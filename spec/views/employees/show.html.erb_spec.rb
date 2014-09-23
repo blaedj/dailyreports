@@ -8,4 +8,13 @@ RSpec.describe "employees/show", :type => :view do
   it "renders attributes in <p>" do
     render
   end
+
+  it "shows the employees name" do
+    render
+    assert_select ""
+
+  end
+
+
+
 end
