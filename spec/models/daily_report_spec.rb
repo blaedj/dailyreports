@@ -35,11 +35,10 @@ RSpec.describe DailyReport, :type => :model do
   describe "with invalid data" do
 
     it "should not be valid" do
-      @daily_report.date_recieved = nil
-      @daily_report.content = nil
-      @daily_report.date = nil
-      @daily_report.employee_id = nil
-      is_expected.not_to be_valid
+      expect(FactoryGirl.build(:daily_report, date_recieved: nil)).not_to be_valid
+      expect(FactoryGirl.build(:daily_report, content: nil)).not_to be_valid
+      expect(FactoryGirl.build(:daily_report, date: nil)).not_to be_valid
+      expect(FactoryGirl.build(:daily_report, employee_id: nil)).not_to be_valid
     end
 
   end
