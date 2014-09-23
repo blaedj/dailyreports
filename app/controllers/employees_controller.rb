@@ -28,7 +28,8 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        flash[:success] = "Employee #{@employee.name} was successfully created."
+        format.html { redirect_to @employee}
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
@@ -42,7 +43,8 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        flash[:success] = "Employee #{@employee.name} was successfully updated."
+        format.html { redirect_to @employee }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit }
@@ -56,7 +58,8 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
+      flash[:success] = "Employee #{@employee.name} was successfully deleted."
+      format.html { redirect_to employees_url}
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,7 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params[:employee]
+      params.require(:employee).permit(:name)
+      #params[:employee, :name]
     end
 end
