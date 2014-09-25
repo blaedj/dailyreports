@@ -8,7 +8,7 @@ FactoryGirl.define do
     date_recieved DateTime.now
     content "this is the daily report content"
     date DateTime.now
-    employee_id 1
+    sequence(:employee_id) { |n| 0+n }
   end
 
 end

@@ -22,6 +22,29 @@ RSpec.describe Employee, :type => :model do
       @employee.name = nil
       expect(@employee).not_to be_valid
     end
+  end
+
+  describe "asked for daily reports" do
+
+    describe "for a day with a daily report" do
+      it "should return a daily report for that day" do
+        today = Date.new(2014, 1, 4)
+        test_report = FactoryGirl.create(:daily_report, date: today, employee_id: @employee.id )
+        expect(@employee.report_for_date(today).date).to eq(today)
+      end
+    end
+
+    describe "for a given date range" do
+      it "should return reports for employee in that range" do
+        today = Date.new(2014, 1, 4)
+        FactoryGirl.create(:daily_report, date: today, employee_id: @employee.id )
+        FactoryGirl.create(:daily_report, date: today + 1, employee_id: @employee.id )
+        FactoryGirl.create(:daily_report, date: today + 2, employee_id: @employee.id )
+        range = Date.new(2014, 1, 4)..Date.new(2014, 1, 6)
+        expect(@employee.reports_for_range(range).count).to eq(3)
+      end
+    end
+
 
   end
 

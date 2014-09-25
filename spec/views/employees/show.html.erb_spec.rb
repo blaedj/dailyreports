@@ -9,12 +9,4 @@ RSpec.describe "employees/show", :type => :view do
     render
   end
 
-  it "shows the employees name" do
-    render
-    assert_select ""
-
-  end
-
-
-
 end
