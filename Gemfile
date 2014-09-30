@@ -26,6 +26,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails_admin'
+
 group :development do
   gem 'rspec-rails', '>=2.12.0'
   gem 'guard-rspec', '1.2.1'
