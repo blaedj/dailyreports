@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Report, :type => :model do
   before do
-    @report = FactoryGirl.create(:report)
+    @report = FactoryGirl.build(:report)
   end
 
   describe "with valid data" do
