@@ -45,8 +45,24 @@ RSpec.describe Employee, :type => :model do
       end
     end
 
+  end
+
+  describe "recieved_for?, given a date" do
+    some_date = Date.new(2014, 3, 4)
+    before do
+      FactoryGirl.create(:daily_report, date: some_date, employee_id: @employee.id )
+    end
+
+    it "should respond with true if a report exists for that date" do
+      expect(@employee.recieved_for? some_date).to be_truthy
+    end
+
+    it "should respond false if no report exists for that date" do
+      expect(@employee.recieved_for?(some_date + 1)).to be_falsy
+    end
 
   end
+
 
 
 end

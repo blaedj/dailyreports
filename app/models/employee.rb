@@ -10,7 +10,10 @@ class Employee < ActiveRecord::Base
 
   def report_for_date(some_date)
     daily_reports.where('date = ?', some_date).first
+  end
 
+  def recieved_for?(some_date)
+    daily_reports.any? { |daily| daily.date == some_date }
   end
 
 end
