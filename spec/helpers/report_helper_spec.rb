@@ -12,4 +12,23 @@ require 'rails_helper'
 # end
 RSpec.describe ReportHelper, :type => :helper do
 
+  describe "active_employees method" do
+    before do
+      FactoryGirl.create(:active_employee)
+      FactoryGirl.create(:inactive_employee, name: "Joe")
+      FactoryGirl.create(:active_employee, name: "John")
+    end
+
+    it "should respond with a list of employees" do
+      expect(active_employees[0]).to respond_to(:name)
+      expect(active_employees[1]).to respond_to(:name)
+    end
+
+    it "should only return active employees" do
+      # expect(active_employees[0].active?).to eq(true)
+      # expect(active_employees[1].active?).to eq(true)
+      expect(active_employees.where(active: false).size).to eq(0)
+    end
+  end
+
 end

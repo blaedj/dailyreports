@@ -2,6 +2,15 @@ FactoryGirl.define do
 
   factory :employee do
     sequence(:name) { |n| "employee#{n}" }
+
+    factory :active_employee do
+      active true
+    end
+
+    factory :inactive_employee do
+      active false
+    end
+
   end
 
   factory :daily_report do

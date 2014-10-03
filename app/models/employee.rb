@@ -16,4 +16,8 @@ class Employee < ActiveRecord::Base
     daily_reports.any? { |daily| daily.date == some_date }
   end
 
+  def active?
+    active
+  end
+
 end
