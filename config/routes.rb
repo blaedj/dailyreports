@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'report/new'
   get 'report/show'
   get 'report/index'
+  get 'reports/show' => 'report#show'
+
 
   resources :reports
 
