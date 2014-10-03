@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
 
   get 'report/new'
-
   get 'report/show'
-
   get 'report/index'
+
+  resources :reports
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :employees
