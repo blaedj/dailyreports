@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
 
-  get 'report/new'
-  get 'report/show'
-  get 'report/index'
-  get 'reports/show' => 'report#show'
+  # get 'reports/new'
+  get 'reports/show'
+  # get 'reports/index'
+  # get 'reports/show' => 'reports#show'
 
 
   resources :reports

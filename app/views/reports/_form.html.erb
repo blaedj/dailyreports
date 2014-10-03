@@ -13,7 +13,7 @@
 
   <div class="controls">
     <%= f.label :employees, :class => 'control-label' %>
-    <%= f.collection_select :employees, active_employees, :id, :name, {:class => 'form-control', :multiple => true}%>
+    <%= f.collection_select(:employees, active_employees, :id, :name, {:class => 'form-control'}, {:multiple => true}) %>
   </div>
 
   <div class="controls">
