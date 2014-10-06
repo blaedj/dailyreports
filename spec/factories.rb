@@ -23,6 +23,7 @@ FactoryGirl.define do
   factory :report do
     date_start Date.new(2014, 6, 1)
     date_end Date.new(2014, 6, 7)
+
   end
 
 end
