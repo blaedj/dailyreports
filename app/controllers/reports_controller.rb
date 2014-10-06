@@ -12,7 +12,6 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-    set_employees
     respond_to do |format|
       if @report
         flash[:success] = "Report was successfully created."
@@ -32,14 +31,9 @@ class ReportsController < ApplicationController
 
   private
 
-  def set_employees
-    #@report.employees = report_params[:employees].map { |empid| Employee.find(empid) }
-    @report.employees = Employee.find(report_params[:employees])
-  end
-
   # Never trust parameters from the scary internet, only allow the white list through.
   def report_params
-    params.require(:report).permit(:employees, :date_end, :date_start)
+    params.require(:report).permit(:date_end, :date_start, :employees => [] )
   end
 
 end

@@ -11,9 +11,9 @@
       <th>Sunday</th>
     </tr>
   </thead>
-  <%# @report.employees.each do |emp| %>
+  <% @report.employees.each do |emp| %>
     <tr>
-      <td><%= @report.employees.name %></td>
+      <td><%= emp.name %></td>
       <td>Monday</td>
       <td>Tuesday</td>
       <td>Wedday</td>
@@ -22,4 +22,4 @@
       <td>Saturday</td>
       <td>Sunday</td>
     </tr>
-  <%# end %>
+  <% end %>
