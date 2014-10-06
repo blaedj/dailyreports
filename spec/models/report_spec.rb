@@ -25,9 +25,10 @@ RSpec.describe Report, :type => :model do
       expect(Report.new()).not_to be_nil
     end
     it "it should have no data" do
-      expect(Report.new().date_start).to be_nil
-      expect(Report.new().date_end).to be_nil
-      expect(Report.new().employees).to be_nil
+      report = Report.new
+      expect(report.date_start).to be_nil
+      expect(report.date_end).to be_nil
+      expect(report.employees).to be_nil
     end
   end
 
