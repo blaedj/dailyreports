@@ -43,17 +43,27 @@ RSpec.describe Report, :type => :model do
   end
 
   describe "given one date" do
-    it "should get the reports for the week containing that date" do
-      starting_date = Date.new(2014, 10, 7)
-      ending_date =  Date.new(2014, 10, 12)
+    starting_date = Date.new(2014, 10, 7)
+    ending_date =  Date.new(2014, 10, 12)
+    before do
       @report = Report.new(start_date: starting_date, employees: [1,2])
+    end
+
+    it "should get the reports for the week containing that date" do
       @report.reports_for_employee(1).first(5).each { |daily| expect(daily.date).to be_between(starting_date - 1, ending_date).inclusive }
+    end
+
+  end
+
+  describe "when asked for days of the week" do
+    it "should respond with the correct date" do
+      expect(@report.monday).to eql(Date.new(2014, 05, 26))
     end
   end
 
 end
 
 def new_report
-  params = {start_date: Date.new(2014, 6, 1), end_date: Date.new(2014, 6, 7), employees: [1,2] }
+  params = {date_start: Date.new(2014, 6, 1), date_end: Date.new(2014, 6, 7), employees: [1,2] }
   Report.new(params)
 end
