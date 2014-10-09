@@ -11,15 +11,8 @@
       <th>Sunday</th>
     </tr>
   </thead>
+
   <% @report.employees.each do |emp| %>
-    <tr>
-      <td><%= emp.name %></td>
-      <td>Monday</td>
-      <td>Tuesday</td>
-      <td>Wedday</td>
-      <td>Thursday</td>
-      <td>Friday</td>
-      <td>Saturday</td>
-      <td>Sunday</td>
-    </tr>
+    <%= render partial: 'employee_reports_show', locals: { employee: emp }  %>
+
   <% end %>
