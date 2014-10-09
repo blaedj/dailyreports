@@ -1,6 +1,6 @@
 class Report
   include ActiveModel::Model
-  attr_accessor :reports, :employees, :date_start, :date_end
+  attr_accessor :daily_reports, :employees, :date_start, :date_end
   validates :employees, presence: true
 
   def initialize args={}
@@ -15,13 +15,17 @@ class Report
   end
 
   def generate_reports
-    @reports = @employees.each_with_object({}) do |employee, hash|
-      hash[employee] = employee.reports_for_range(@date_start..@date_end)
+     @daily_reports = @employees.each_with_object({}) do |employee, hash|
+      hash[employee.id] = employee.reports_for_range(@date_start..@date_end)
     end
   end
 
   def get_employees(employee_ids)
     @employees = Employee.find(employee_ids.reject(&:blank?))
+  end
+
+  def reports_for_employee employee_id
+    @employees.find{ |emp| emp.id == employee_id }.reports_for_range(@date_start..@date_end)
   end
 
   private

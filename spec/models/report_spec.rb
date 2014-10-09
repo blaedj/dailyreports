@@ -42,20 +42,13 @@ RSpec.describe Report, :type => :model do
     end
   end
 
-  context "generation" do
-    it "should generate a valid report" do
-      expect(@report.reports).not_to be_empty
+  describe "given one date" do
+    it "should get the reports for the week containing that date" do
+      starting_date = Date.new(2014, 10, 7)
+      ending_date =  Date.new(2014, 10, 12)
+      @report = Report.new(start_date: starting_date, employees: [1,2])
+      @report.reports_for_employee(1).first(5).each { |daily| expect(daily.date).to be_between(starting_date - 1, ending_date).inclusive }
     end
-  end
-
-  describe "range of reports" do
-    pending "need to figure out a way to conveniently render reports: how do I test that I can get a range of reports? possibly "
-
-    it "should not include more than a week of reports" do
-      pending "pass in a week possible? what is the API like for ruby weeks?"
-      raise "broken"
-    end
-
   end
 
 end
