@@ -4,7 +4,7 @@
       <th>Employee Name</th>
       <th>Monday</th>
       <th>Tuesday</th>
-      <th>Wedday</th>
+      <th>Wednesday</th>
       <th>Thursday</th>
       <th>Friday</th>
       <th>Saturday</th>
@@ -14,5 +14,4 @@
 
   <% @report.employees.each do |emp| %>
     <%= render partial: 'employee_reports_show', locals: { employee: emp }  %>
-
   <% end %>
