@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  #before_action :parse_dates, only: [:create] # amke sure the dates are not strings but Dates
+
 
   # GET /reports/new
   def new
@@ -33,6 +35,13 @@ class ReportsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def report_params
+    good_params = whitelist_params
+    good_params[:date_start] = DateTime.parse(good_params[:date_start])
+    good_params[:date_end] = DateTime.parse(good_params[:date_end])
+    good_params
+  end
+
+  def whitelist_params
     params.require(:report).permit(:date_end, :date_start, :employees => [] )
   end
 
