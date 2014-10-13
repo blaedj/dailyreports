@@ -11,7 +11,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'sane_week'
 
-# gem 'therubyracer',  platforms: :ruby
+group :production do
+  gem 'rails_12factor' # for heroku
+end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
