@@ -27,8 +27,8 @@ RSpec.describe DailyReport, :type => :model do
     it "should respond to updated_at" do
       is_expected.to respond_to(:updated_at)
     end
-    it "should respond to employee_id" do
-      is_expected.to respond_to(:employee_id)
+    it "should respond to employee" do
+      is_expected.to respond_to(:employee)
     end
   end
 
