@@ -270,7 +270,7 @@ DEPENDENCIES
   rails_admin
   rspec-its (>= 0.0.1.pre)
   rspec-rails (>= 2.12.0)
-  sane_week
+  sane_week (>= 0.0.2)
   sass-rails (~> 4.0.3)
   sdoc
   spring
