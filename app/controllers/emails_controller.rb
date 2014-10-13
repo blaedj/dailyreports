@@ -1,7 +1,7 @@
 class EmailsController < ApplicationController
 
 
-  def post params
+  def post
     logger.info params
     render text: ''
   end
