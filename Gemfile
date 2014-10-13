@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
-gem 'sane_week', '>= 0.0.2'
+gem 'sane_week', '>= 0.0.3'
 
 group :production do
   gem 'rails_12factor' # for heroku
