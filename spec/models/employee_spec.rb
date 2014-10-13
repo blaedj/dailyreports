@@ -14,6 +14,9 @@ RSpec.describe Employee, :type => :model do
     it "should have daily reports" do
       expect(@employee).to respond_to :daily_reports
     end
+    it "should have an email" do
+      expect(@employee).to respond_to :email
+    end
 
   end
 

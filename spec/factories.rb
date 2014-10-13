@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :employee do
     sequence(:name) { |n| "employee#{n}" }
-
+    sequence(:email) { |n| "employee#{n}@example.com" }
     factory :active_employee do
       active true
     end
