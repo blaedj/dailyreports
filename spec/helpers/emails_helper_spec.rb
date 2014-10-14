@@ -41,6 +41,14 @@ RSpec.describe EmailsHelper, :type => :helper do
       end
     end
 
+    it "should get the date recieved" do
+      expect(@daily.date_recieved).to eql(DateTime.parse("Mon, 13 Oct 2014 14:38:29 -0500"))
+    end
+
+    it "should get the date" do
+      expect(@daily.date).to eql(DateTime.parse("Mon, 13 Oct 2014 14:38:29 -0500"))
+    end
+
   end
 
 
