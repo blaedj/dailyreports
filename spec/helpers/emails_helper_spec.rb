@@ -21,18 +21,24 @@ RSpec.describe EmailsHelper, :type => :helper do
         "body-plain"    => "no longer checking the authenticity token when receiving emails\r\n",
         "Date"          => "Mon, 13 Oct 2014 14:38:29 -0500",
         "timestamp"     => "1413229117",
-        "Return-Path"=>"<menge051@d.umn.edu>",
+        "Return-Path"=>"<test@test.com>",
       }
       @daily = process_email(@test_params)
-      @test_employee = FactoryGirl.create(:active_employee)
+      @test_employee = FactoryGirl.create(:active_employee, email: "test@test.com")
     end
 
     it "should get the plain body text" do
       expect(@daily.content).to eql("no longer checking the authenticity token when receiving emails")
     end
     it "should get the sender of the email" do
-      allow(Employee).to receive(:find).and_return(@test_employee)
+      allow(Employee).to receive(:find_by_email).and_return(@test_employee)
+      @daily = process_email(@test_params)
       expect(@daily.employee).to eql(@test_employee)
+    end
+    describe "parse email from return path" do
+      it "should extract the email" do
+        expect(parse_email("<test@test.com>")).to eql("test@test.com")
+      end
     end
 
   end
