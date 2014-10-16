@@ -3,6 +3,8 @@ class EmailsController < ApplicationController
 
   def recieve
     logger.info params
+    daily = process_email(args)
+    daily.save
     render text: ''
   end
 
