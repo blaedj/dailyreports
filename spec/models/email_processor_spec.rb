@@ -28,6 +28,11 @@ RSpec.describe EmailProcessor, :type => :model do
       it "should extract the email" do
         expect(@ep.parse_email("<test@test.com>")).to eql("test@test.com")
       end
+      it "should correctly fetch the email from the params" do
+        daily = @ep.process_email(@test_params)
+        expect(daily.employee.email).not_to be_nil
+        expect(daily.employee.email).to eql("test@test.com")
+      end
     end
 
     it "should get the date recieved" do
