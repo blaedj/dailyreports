@@ -4,7 +4,7 @@ RSpec.describe EmailsController, :type => :controller do
 
   describe "POST #recieve" do
     describe "with valid parameters" do
-      it "should be successful" do
+      it "succeeds" do
         params = {
           "stripped-text" => "no longer checking the authenticity token when receiving emails",
           "body-plain"    => "no longer checking the authenticity token when receiving emails\r\n",
