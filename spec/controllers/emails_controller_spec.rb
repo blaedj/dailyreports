@@ -5,6 +5,7 @@ RSpec.describe EmailsController, :type => :controller do
   describe "POST #recieve" do
     describe "with valid parameters" do
       it "succeeds" do
+        FactoryGirl.create(:employee, email: "test@test.com")
         params = {
           "stripped-text" => "no longer checking the authenticity token when receiving emails",
           "body-plain"    => "no longer checking the authenticity token when receiving emails\r\n",

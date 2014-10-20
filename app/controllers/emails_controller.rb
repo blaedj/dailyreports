@@ -8,6 +8,8 @@ class EmailsController < ApplicationController
     if daily.save
       render text: ''
     else
+      all_errors = daily.errors.full_messages.reduce {|s, message| s += message }
+      logger.error "Validation Errors: \n #{all_errors}"
       head 500
     end
 
