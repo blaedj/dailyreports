@@ -61,9 +61,22 @@ RSpec.describe Report, :type => :model do
     end
   end
 
+ describe "given no start date" do
+   it "should default to the current date" do
+     allow(Date).to receive(:today).and_return(Date.new(2014, 10, 20))
+     expect(Report.new({employees: [1,2]}).date_start).to eql(Date.new(2014, 10, 20))
+   end
+ end
+
+ describe "blank or mis-formed paramters" do
+   it "should handle blank-string parameter values" do
+     expect(Report.new({date_start: "", employees: [1,2]})).to be_valid
+   end
+ end
+
 end
 
-def new_report
-  params = {date_start: Date.new(2014, 6, 1), date_end: Date.new(2014, 6, 7), employees: [1,2] }
+def new_report params = nil
+  params ||= {date_start: Date.new(2014, 6, 1), date_end: Date.new(2014, 6, 7), employees: [1,2] }
   Report.new(params)
 end

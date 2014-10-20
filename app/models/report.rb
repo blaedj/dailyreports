@@ -11,6 +11,7 @@ class Report
   end
 
   def initialize args={}
+    args = nil_if_blank args
     generate(args[:date_start], args[:date_end], args[:employees]) unless args.empty?
   end
 
@@ -38,6 +39,10 @@ class Report
   end
 
   private
+
+  def nil_if_blank attrs
+    attrs.each { |key, val| attrs[key] = nil if attrs[key].blank? }
+  end
 
 
 

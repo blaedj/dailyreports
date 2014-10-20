@@ -36,8 +36,8 @@ class ReportsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def report_params
     good_params = whitelist_params
-    good_params[:date_start] = DateTime.parse(good_params[:date_start])
-    good_params[:date_end] = DateTime.parse(good_params[:date_end])
+    good_params[:date_start] = DateTime.parse(good_params[:date_start]) unless good_params[:date_start].blank?
+    good_params[:date_end] = DateTime.parse(good_params[:date_end]) unless good_params[:date_end].blank?
     good_params
   end
 
