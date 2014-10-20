@@ -7,20 +7,21 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <ul class="nav nav-pills">
+      <li><%= link_to "Home", :root , :class => "nav-button"%></li>
+      <li><%= link_to "New Report", :new_report, :class => "nav-button"%></li>
+      <li><%=link_to "Admin", "admin", :class => "nav-button" %></li>
+    </ul>
+
+
 
     <div class="container-fluid main-container">
       <div class="container">
-	<div style="padding: 2em;">
-          <div class="container">
-            <% flash.each do |name, msg| -%>
-              <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-            <% end -%>
-          </div>
-
-          <%= yield %>
-
-	</div>
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+        <% end -%>
       </div>
+      <%= yield %>
     </div>
 
 

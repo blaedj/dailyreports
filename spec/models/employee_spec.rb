@@ -57,7 +57,7 @@ RSpec.describe Employee, :type => :model do
     end
 
     it "should respond with true if a report exists for that date" do
-      expect(@employee.recieved_for? some_date).to be_truthy
+      expect(@employee.recieved_for?( some_date)).to be_truthy
     end
 
     it "should respond false if no report exists for that date" do
