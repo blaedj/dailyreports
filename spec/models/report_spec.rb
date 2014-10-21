@@ -24,7 +24,7 @@ RSpec.describe Report, :type => :model do
     it "should return an empty report" do
       expect(Report.new()).not_to be_nil
     end
-    it "it should have no data" do
+    it "should have no data" do
       report = Report.new
       expect(report.date_start).to be_nil
       expect(report.date_end).to be_nil
@@ -61,18 +61,22 @@ RSpec.describe Report, :type => :model do
     end
   end
 
- describe "given no start date" do
-   it "should default to the current date" do
-     allow(Date).to receive(:today).and_return(Date.new(2014, 10, 20))
-     expect(Report.new({employees: [1,2]}).date_start).to eql(Date.new(2014, 10, 20))
-   end
- end
+  describe "given no start date" do
+    it "should default to the current date" do
+      allow(Date).to receive(:today).and_return(Date.new(2014, 10, 20))
+      expect(Report.new({employees: [1,2]}).date_start).to eql(Date.new(2014, 10, 20))
+    end
+  end
 
- describe "blank or mis-formed paramters" do
-   it "should handle blank-string parameter values" do
-     expect(Report.new({date_start: "", employees: [1,2]})).to be_valid
-   end
- end
+  describe "initialized with blank or mis-formed paramters" do
+    it "should handle blank-string date values" do
+      expect(Report.new({date_start: "", employees: [1,2]})).to be_valid
+    end
+    it "should not be valid when not given any employees" do
+      bad_params = {date_start: Date.new(2014, 6, 1), date_end: Date.new(2014, 6, 7), employees: nil }
+      expect(Report.new(bad_params)).not_to be_valid
+    end
+  end
 
 end
 

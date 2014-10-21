@@ -21,19 +21,20 @@ class Report
     @date_start = @week.start_date
     @date_end = @week.sunday #TODO: add a 'week_end' attr to the sane_week gem
     get_employees(employee_ids)
-    generate_reports
+    reports_by_employee
   end
 
-  def generate_reports
+  def reports_by_employee
     @daily_reports = @employees.each_with_object({}) do |employee, hash|
       hash[employee.id] = employee.reports_for_range(@date_start..@date_end)
     end
   end
 
   def get_employees(employee_ids)
-    @employees = Employee.find(employee_ids.reject(&:blank?))
+    @employees = employee_ids.nil? ? [] : Employee.find(employee_ids.reject(&:blank?))
   end
 
+  #gets the reports for the given employee
   def reports_for_employee employee_id
     @employees.find{ |emp| emp.id == employee_id }.reports_for_range(@date_start..@date_end)
   end
@@ -41,9 +42,13 @@ class Report
   private
 
   def nil_if_blank attrs
+    # attrs.each do |key, val|
+    #   if attrs[key].nil?
+    #     attrs.delete(key)
+    #   end
+    # end
+
     attrs.each { |key, val| attrs[key] = nil if attrs[key].blank? }
   end
-
-
 
 end

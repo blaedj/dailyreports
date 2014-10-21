@@ -27,7 +27,7 @@ RSpec.describe Employee, :type => :model do
     end
   end
 
-  describe "asked for daily reports" do
+  describe "when asked for daily reports" do
 
     describe "for a day with a daily report" do
       it "should return a daily report for that day" do
