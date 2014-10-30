@@ -13,7 +13,7 @@ class Employee < ActiveRecord::Base
   end
 
   def recieved_for?(some_date)
-    daily_reports.any? { |daily| daily.date == some_date }
+    daily_reports.any? { |daily| daily.date.to_date == some_date.to_date }
   end
 
   def active?

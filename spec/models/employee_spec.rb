@@ -58,11 +58,14 @@ RSpec.describe Employee, :type => :model do
 
     it "should respond with true if a report exists for that date" do
       expect(@employee.recieved_for?( some_date)).to be_truthy
-      expect("This test doesn't test properly, or else this functionality fails further up the stack.").to eql('')
     end
 
     it "should respond false if no report exists for that date" do
       expect(@employee.recieved_for?(some_date + 1)).to be_falsy
+    end
+
+    it "should should check only the year, month and day for a match" do
+      expect(@employee.recieved_for?(DateTime.new(2014, 3, 4, 4, 33, 21))).to be_truthy
     end
 
   end
