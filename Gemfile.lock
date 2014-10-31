@@ -264,6 +264,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails (= 4.2.1)
+  font-awesome-rails
   guard-rspec (= 1.2.1)
   jbuilder (~> 2.0)
   jquery-rails

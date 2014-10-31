@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'sane_week', '>= 0.0.3'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor' # for heroku

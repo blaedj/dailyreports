@@ -4,10 +4,12 @@
 
 boolify = (index, el) ->
         value = $(el).text()
-        if value == "false"
-                $(el).addClass 'xMark'
-        else if value == "true"
-                $(el).addClass 'checkmark'
+        span = $('<span>')
+        if value == "true"
+                span.addClass 'checkmark fa fa-lg fa-check-square'
+        else if value == "false"
+                span.addClass 'xMark fa fa-lg fa-ban'
+        $(el).html(span)
 
 $(document).ready ->
         $('td.boolString').each(boolify)
