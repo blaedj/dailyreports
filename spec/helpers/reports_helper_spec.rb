@@ -31,4 +31,11 @@ RSpec.describe ReportsHelper, :type => :helper do
     end
   end
 
+  describe "link to report for day" do
+    it "should provide a link to view the daily report for a given employee and day" do
+      pending("may be better as a feature/request spec? unsure...")
+      fail("not implemented")
+    end
+  end
+
 end
