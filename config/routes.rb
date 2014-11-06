@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :employees
 
+  resources :daily_reports
+  get 'daily_reports/show' => 'daily_reports#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

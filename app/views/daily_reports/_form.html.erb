@@ -1,0 +1,13 @@
+<%= form_for @daily_report, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@daily_report.errors.count, "error") %> prohibited this daily_report from being saved:</h2>
+
+      <ul>
+	<% @daily_report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+	<% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

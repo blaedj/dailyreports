@@ -1,0 +1,24 @@
+<h1>Daily_reports</h1>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daily_reports.each do |daily_report| %>
+      <tr>
+	<td><%= link_to daily_report.name, daily_report %></td>
+        <td><%= link_to 'Edit', edit_daily_report_path(daily_report), :class => 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', daily_report, method: :delete, data: { confirm: 'Are you sure?' },  :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daily_report', new_daily_report_path %>
