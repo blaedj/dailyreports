@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe DailyReportsController, :type => :controller do
 
+  let(:params) { @daily_report.attributes.symbolize_keys }
+
   describe "GET new" do
     it "returns http success" do
       get :new
@@ -10,8 +12,11 @@ RSpec.describe DailyReportsController, :type => :controller do
   end
 
   describe "GET show" do
+    before(:each ) do
+      @daily_report = FactoryGirl.create(:daily_report)
+    end
     it "returns http success" do
-      get :show
+      get :show, {:daily_report => params}
       expect(response).to be_success
     end
   end
