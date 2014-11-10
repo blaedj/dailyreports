@@ -1,9 +1,9 @@
 
 <div class="page-header">
-  <h1><%=t '.title', :default => @employee.name %></h1>
+  <h1><%=t '.title', :default => "#{@daily_report.employee} , #{@daily_report.date}" %></h1>
 </div>
 
 <div class="form-actions">
-  <%= link_to 'Edit', edit_employee_path(@employee) %> |
-  <%= link_to 'Back', employees_path %>
+  <%= link_to 'Edit', edit_daily_report_path(@daily_report) %> |
+  <%= link_to 'Back', daily_reports_path %>
 </div>
