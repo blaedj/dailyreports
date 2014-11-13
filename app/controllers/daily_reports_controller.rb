@@ -12,7 +12,6 @@ class DailyReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    #@daily_report = DailyReport.find(dr_params[:id])
   end
 
   private
