@@ -11,5 +11,24 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe DailyReportsHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "link_to_daily_report given day and employee" do
+    it "should provide a link to view the daily report" do
+      daily_report = FactoryGirl.create(:daily_report)
+      employee =  FactoryGirl.create(:employee)
+      link = link_to_daily_report(daily_report.date, employee.id)
+      expect(link).to eql('/daily_reports/2')
+    end
+    it "should give the correct report for day and employee" do
+      date = Date.today
+      employee = FactoryGirl.create(:active_employee)
+      daily_report = FactoryGirl.create(:daily_report, employee_id: employee.id, date: date)
+      expect(link_to_daily_report(date, employee.id)).to eql("/daily_report/#{daily_report.id}")
+    end
+  end
+  describe "" do
+
+  end
+
+
+
 end
