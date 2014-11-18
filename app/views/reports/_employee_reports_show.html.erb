@@ -2,7 +2,10 @@
 
 <tr>
   <td><%= employee.name %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.monday) %></td>
+  <td class="boolString" >
+    <%= employee.recieved_for?(@report.monday) %>
+    <%= link_to("...", link_to_daily_report(@report.monday, employee.id))%>
+  </td>
   <td class="boolString" ><%= employee.recieved_for?(@report.tuesday) %></td>
   <td class="boolString" ><%= employee.recieved_for?(@report.wednesday) %></td>
   <td class="boolString" ><%= employee.recieved_for?(@report.thursday) %></td>
