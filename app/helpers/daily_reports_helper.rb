@@ -7,7 +7,7 @@ module DailyReportsHelper
     end
     dr_matches = DailyReport.where('date(date) = ?', date).where('employee_id = ?', employee_id)
     first_match = dr_matches.first
-    daily_report_path(first_match)
+    first_match.nil? ? '' : daily_report_path(first_match)
   end
 
 end

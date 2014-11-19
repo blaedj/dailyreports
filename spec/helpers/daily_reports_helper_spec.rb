@@ -18,12 +18,17 @@ RSpec.describe DailyReportsHelper, :type => :helper do
       daily_report = FactoryGirl.create(:daily_report, employee_id: employee.id, date: Date.today)
       expect(link_to_daily_report(date, employee.id)).to eql("/daily_reports/#{daily_report.id}")
     end
+    it "should return empty string if no daily_report is found" do
+      employee = FactoryGirl.create(:active_employee)
+      expect(link_to_daily_report(Date.today, employee.id)).to eql('')
+    end
   end
   describe "link_to_daily_report with nil params" do
     it "should return an empty string" do
       expect(link_to_daily_report(nil, nil)).to eql("")
     end
   end
+
 
 
 end
