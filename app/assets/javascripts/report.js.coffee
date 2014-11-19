@@ -12,4 +12,4 @@ boolify = (index, el) ->
         $(el).html(span)
 
 $(document).ready ->
-        $('td.boolString').each(boolify)
+        $('.boolString').each(boolify)

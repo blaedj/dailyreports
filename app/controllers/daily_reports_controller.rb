@@ -17,7 +17,7 @@ class DailyReportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_daily_report
-      @daily_report = DailyReport.find(dr_params[:id])
+      @daily_report = DailyReport.find(params[:id])
     end
 
 
