@@ -2,14 +2,32 @@
 
 <tr>
   <td><%= employee.name %></td>
-  <td class="boolString" >
-    <%= employee.recieved_for?(@report.monday) %>
-    <%= link_to("...", link_to_daily_report(@report.monday, employee.id))%>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.monday).to_s,
+		 link_to_daily_report(@report.monday, employee.id), class: "boolString btn") %>
   </td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.tuesday) %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.wednesday) %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.thursday) %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.friday) %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.saturday) %></td>
-  <td class="boolString" ><%= employee.recieved_for?(@report.sunday) %></td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.tuesday).to_s,
+		 link_to_daily_report(@report.tuesday, employee.id), class: "boolString btn")%>
+  </td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.wednesday).to_s,
+		 link_to_daily_report(@report.wednesday, employee.id), class: "boolString btn")%>
+  </td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.thursday).to_s,
+		 link_to_daily_report(@report.thursday, employee.id), class: "boolString btn")%>
+  </td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.friday).to_s,
+		 link_to_daily_report(@report.friday, employee.id), class: "boolString btn")%>
+  </td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.saturday).to_s,
+		 link_to_daily_report(@report.saturday, employee.id), class: "boolString btn")%>
+  </td>
+  <td>
+    <%= link_to( employee.recieved_for?(@report.sunday).to_s,
+		 link_to_daily_report(@report.sunday, employee.id), class: "boolString btn")%>
+  </td>
 </tr>
