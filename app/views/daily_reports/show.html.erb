@@ -1,7 +1,14 @@
 
 <div class="page-header">
-  <h1><%=t '.title', :default => "#{@daily_report.employee} , #{@daily_report.date}" %></h1>
+  <h1><%=t '.title', :default => "#{@daily_report.employee.name} , #{@daily_report.date.to_date}" %></h1>
 </div>
+
+<dl>
+  <dt>Report Content:</dt>
+  <dd><%= @daily_report.content %></dd>
+</dl>
+
+
 
 <div class="form-actions">
   <%= link_to 'Edit', edit_daily_report_path(@daily_report) %> |
